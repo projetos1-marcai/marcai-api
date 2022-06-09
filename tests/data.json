@@ -1,0 +1,16 @@
+{
+    "HTTP_CODE": {
+        "OK": 200,
+        "CREATED": 201,
+        "FORBIDDEN": 403,
+        "NOT_FOUND": 404,
+        "UNPROCESSABLE": 422,
+        "UNAUTHORIZED": 401,
+        "NOT_ACCEPTABLE": 406
+    },
+    "default_User":{
+		"name": "jorginho da silva",
+		"password": "12345",
+		"email": "teste@teste.com"
+    }
+}
