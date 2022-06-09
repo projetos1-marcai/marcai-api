@@ -44,6 +44,3 @@ Versions:
 ## path : root
 
 > `sudo docker-compose up`
-
-
-# marcai-api
