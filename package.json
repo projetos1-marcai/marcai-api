@@ -1,7 +1,7 @@
 {
   "name": "marcai",
   "version": "1.0.0",
-  "description": "Agendados de serviços",
+  "description": "Agendador de serviços",
   "main": "index.js",
   "scripts": {
     "test": "SET NODE_ENV=test&&mocha ./tests/integration/*.test.js --timeout 10000 --exit",

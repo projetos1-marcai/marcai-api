@@ -8,7 +8,19 @@ module.exports = {
         return createUser(req, res);
     },
 
-    async getUsers(req, res) {
+    async listUsers(req, res) {
+        return
+    },
+
+    async viewUser(req, res) {
+        return
+    },
+
+    async deleteUser(req, res) {
+        return
+    },
+
+    async updateUser(req, res) {
         return
     }
 }

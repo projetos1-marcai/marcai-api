@@ -1,5 +1,6 @@
 const express = require('express');
 const UserRoutes = require('@routes/UserRoutes');
+const ServiceRoutes = require('@routes/ServiceRoutes');
 const app  = express();
 const cors = require('cors');
 const bodyParser = require('body-parser');
@@ -11,5 +12,6 @@ app.use(bodyParser.json());
 
 
 app.use('/', UserRoutes);
+app.use('/', ServiceRoutes);
 
 module.exports = app;
