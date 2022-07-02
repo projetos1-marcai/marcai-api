@@ -1,7 +1,7 @@
 const { Schema, model } = require('mongoose');
 
 const UserSchema = new Schema({
-    name: {
+    nome: {
         type: String,
         required: true,
     },
@@ -12,13 +12,29 @@ const UserSchema = new Schema({
         lowercase: true,
         unique: true
     },
-    password: {
+    telefone: {
+        type: String,
+        required: true,
+        match: [/\(([0-9]{2}|0{1}((x|[0-9]){2}[0-9]{2}))\)\s*[0-9]{3,5}[- ]*[0-9]{4}/, 'Formato de telefone inválido'], // (xx) xxxxx xxxx
+        lowercase: true,
+        unique: true
+    },
+    senha: {
         type: String,
         required: true,
     },
-    token_list: {
-        type: [String]
-    }
+    foto_url: {
+        type: String,
+        required: false,
+    },
+    bio: {
+        type: String,
+        required: false,
+    },
+    servicos: {
+        type: [String],
+        required: false,
+    },
 },
     {
         timestamps: true,

@@ -9,23 +9,50 @@ const ServiceSchema = new Schema({
         type: String,
         required: true,
     },
-    prestador: {
+    cnpj: {
+        type: String,
+        required: false,
+    },
+    fornecedor: {
         type: String,
         required: true,
     },
-    email: {
+    logo_url: {
         type: String,
         required: false,
-        match: [
-            /^\w+([.-]?\w+)@\w+([.-]?\w+)(.\w{2,3})+$/,
-            'Formato de email inválido'
-        ],
-        lowercase: true,
     },
-    telefone: {
+    disponivel: {
+        type: Boolean,
+        default: true
+    },
+    presencial: {
+        type: Boolean,
+        required: true,
+    },
+    valor: {
+        type: Number,
+        required: true,
+    },
+    avaliacoes: {
+        type: [String]
+    },
+    endereco: {
         type: String,
-        required: false,
-    },}, 
+        required: false
+    },
+    formas_pagamento: {
+        type: [Number],
+        required: true
+    },
+    categoria: {
+        type: Number,
+        required: true
+    },
+    agenda: {
+        type: String,
+        required: true
+    }
+}, 
     {
         timestamps: true,
     }

@@ -2,7 +2,7 @@ const User = require('@models/User');
 const bcrypt = require('bcrypt');
 
 async function createUser(req, res) {
-    const { name, password, email } = req.body;
+    const { nome,email,telefone,senha,foto_url,bio,servicos } = req.body;
 
         const emailAlreadyExists = await User.findOne({ "email": email });
 
@@ -11,14 +11,11 @@ async function createUser(req, res) {
         }
 
         try {
-            const encryptedPassword = await bcrypt.hash(password, parseInt(process.env.SALT_ROUNDS)); //encriptografia
+            const encryptedPassword = await bcrypt.hash(senha, parseInt(process.env.SALT_ROUNDS)); //encriptografia
             const user = await User.create({
-                name,
-                "password": encryptedPassword,
-                email,
+                nome,email,telefone,foto_url,bio,servicos,
+                "senha": encryptedPassword,
             });
-            
-
             return res.status(201).send({ "user": user});
         } catch (error) {
             return res.status(422).send(error.message);
