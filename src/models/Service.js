@@ -12,6 +12,7 @@ const ServiceSchema = new Schema({
     cnpj: {
         type: String,
         required: false,
+        default: null
     },
     fornecedor: {
         type: String,
@@ -20,6 +21,7 @@ const ServiceSchema = new Schema({
     logo_url: {
         type: String,
         required: false,
+        default: "https://img2.gratispng.com/20180523/zxg/kisspng-computer-icons-customer-service-icon-design-it-ser-ub4we-engineering-services-5b04fd02de8b46.2830610615270535709116.jpg"
     },
     disponivel: {
         type: Boolean,
@@ -34,7 +36,8 @@ const ServiceSchema = new Schema({
         required: true,
     },
     avaliacoes: {
-        type: [String]
+        type: [String],
+        default: []
     },
     endereco: {
         type: String,

@@ -7,19 +7,21 @@ const HorarySchema = new Schema({
     },
     inicio: {
         type: Date,
-        required:true
+        required: true
     },
     fim: {
         type: Date,
-        required:true
+        required: true
     },
     disponivel: {
         type: Boolean,
-        required:true
+        required: false,
+        default: true
     },
     reserva: {
         type: String,
-        required:true
+        required: false,
+        default: null
     },
 },
     {
