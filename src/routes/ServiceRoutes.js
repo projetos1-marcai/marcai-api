@@ -8,10 +8,11 @@ router.post('/service', ServiceController.createService);
 router.get('/service-payment-methods', ServiceController.listPaymentMethods);
 router.get('/service-categories', ServiceController.listCategories);
 
-router.post('/horario', ServiceController.createHorario)
+router.post('/horario', ServiceController.createHorario);
 
-router.get('/service/categoria/:categoria', ServiceController.serviceByCategory)
-router.get('/service/search/:search', ServiceController.serviceBySubstring)
-router.get('/service/id/:id', ServiceController.serviceByID)
+router.get('/service/categoria/:categoria', ServiceController.serviceByCategory);
+router.get('/service/search/:search', ServiceController.serviceBySubstring);
+router.get('/service/id/:id', ServiceController.serviceByID);
+router.get('/service/cidade/:cidade', ServiceController.serviceByCity);
 
 module.exports = router;
