@@ -1,4 +1,5 @@
 const { Schema, model } = require('mongoose');
+const Endereco = require('@models/ServiceAddress').AddressSchema;
 
 const ServiceSchema = new Schema({ 
     titulo: {
@@ -40,8 +41,9 @@ const ServiceSchema = new Schema({
         default: []
     },
     endereco: {
-        type: String,
-        required: false
+        type: Endereco,
+        required: false,
+        default: {}
     },
     formas_pagamento: {
         type: [Number],

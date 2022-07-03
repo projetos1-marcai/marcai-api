@@ -14,6 +14,7 @@ const listPaymentMethods = require('../services/ServiceFunctions/listPaymentMeth
 const serviceByCategory = require('../services/ServiceFunctions/serviceByCategory');
 const serviceByID = require('../services/ServiceFunctions/serviceByID');
 const serviceBySubstring = require('../services/ServiceFunctions/serviceBySubstring');
+const serviceByCity = require('../services/ServiceFunctions/serviceByCity');
 
 const AgendaController = require('@controllers/AgendaController');
 
@@ -36,6 +37,10 @@ module.exports = {
 
     async serviceByID(req, res) {
         return serviceByID(req, res);
+    },
+
+    async serviceByCity(req, res) {
+        return serviceByCity(req, res);
     },
 
     async serviceByCategory(req, res) {
