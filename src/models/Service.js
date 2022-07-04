@@ -70,7 +70,7 @@ const ServiceSchema = new Schema({
     },
     agenda: {
         type: String,
-        required: true
+        required: false
     }
 }, 
     {
