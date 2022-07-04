@@ -41,7 +41,22 @@ const ServiceSchema = new Schema({
         default: []
     },
     endereco: {
-        type: Endereco,
+        numero: {
+            type: Number,
+            required: false
+        },
+        rua: {
+            type: String,
+            required: false
+        },
+        bairro: {
+            type: String,
+            required: false
+        },
+        cidade_id: {
+            type: Number,
+            required: false
+        },
         required: false,
         default: {}
     },
