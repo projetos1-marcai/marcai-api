@@ -1,6 +1,6 @@
-const Horario = require('@models/ScheduleHorary');
+const Horario = require('@models/agenda/Horario');
 
-async function createHorario(req, res) {
+async function criarHorario(req, res) {
     const { 
         agenda,
         inicio,
@@ -20,6 +20,6 @@ async function createHorario(req, res) {
     return res.status(201).send({"horario": horario});
 }
 
-module.exports = createHorario;
+module.exports = criarHorario;
 
 

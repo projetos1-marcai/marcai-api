@@ -1,7 +1,7 @@
-const User = require('@models/User');
+const User = require('@models/usuario/User');
 const bcrypt = require('bcrypt');
 
-async function createUser(req, res) {
+async function criarUsuario(req, res) {
     const { nome,email,telefone,senha,foto_url,bio,servicos } = req.body;
 
         const emailAlreadyExists = await User.findOne({ "email": email });
@@ -22,4 +22,4 @@ async function createUser(req, res) {
         }
 }
 
-module.exports = createUser;
+module.exports = criarUsuario;

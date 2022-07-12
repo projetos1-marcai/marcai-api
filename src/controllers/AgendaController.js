@@ -1,7 +1,7 @@
-const createHorario = require('../services/AgendaFunctions/createHorario');
+const criarHorario = require('../services/AgendaFunctions/criarHorario');
 
 module.exports = {
-    async createHorario(req, res) {
-        return createHorario(req, res);
+    async criarHorario(req, res) {
+        return criarHorario(req, res);
     }
 }

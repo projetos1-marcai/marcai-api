@@ -1,7 +1,7 @@
 const { Schema, model } = require('mongoose');
-const Endereco = require('@models/ServiceAddress').AddressSchema;
+const Endereco = require('@models/servico/Endereco').Endereco;
 
-const ServiceSchema = new Schema({ 
+const ServicoSchema = new Schema({ 
     titulo: {
         type: String,
         required: true,
@@ -78,4 +78,4 @@ const ServiceSchema = new Schema({
     }
 );
 
-module.exports = model('Service', ServiceSchema);
+module.exports = model('Servico', ServicoSchema);

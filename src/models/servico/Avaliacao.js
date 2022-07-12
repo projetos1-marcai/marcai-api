@@ -1,6 +1,6 @@
 const { Schema, model } = require('mongoose');
 
-const RatingSchema = new Schema({ 
+const AvaliacaoSchema = new Schema({ 
     servico: {
         type: String,
         required: true,
@@ -20,4 +20,4 @@ const RatingSchema = new Schema({
     }
 );
 
-module.exports = model('Rating', RatingSchema);
+module.exports = model('Avaliacao', AvaliacaoSchema);

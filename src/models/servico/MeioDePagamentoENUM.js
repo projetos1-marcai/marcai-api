@@ -1,5 +1,5 @@
 
-const PaymentMethodsEnum = Object.freeze(
+const MeioDePagamento = Object.freeze(
     {
         1: "PIX",
         2: "Boleto",
@@ -9,4 +9,4 @@ const PaymentMethodsEnum = Object.freeze(
     }
 )
 
-module.exports = PaymentMethodsEnum;
+module.exports = MeioDePagamento;

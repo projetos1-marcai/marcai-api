@@ -1,5 +1,5 @@
 
-const CategoryEnum = Object.freeze(
+const Categoria = Object.freeze(
     {
         1 : "Salões de beleza e esmalterias",
         2 : "Academias e estúdios",
@@ -15,4 +15,4 @@ const CategoryEnum = Object.freeze(
     }
 )
 
-module.exports = CategoryEnum;
+module.exports = Categoria;

@@ -1,18 +1,18 @@
 const router = require('express').Router();
-const ServiceController = require('@controllers/ServiceController');
+const ServicoController = require('@controllers/ServicoController');
 
-router.get('/services', ServiceController.listServices);
+router.get('/services', ServicoController.listarServicos);
 
-router.post('/service', ServiceController.createService);
+router.post('/service', ServicoController.criarServico);
 
-router.get('/service-payment-methods', ServiceController.listPaymentMethods);
-router.get('/service-categories', ServiceController.listCategories);
+router.get('/service-payment-methods', ServicoController.listarMeiosDePagamentos);
+router.get('/service-categories', ServicoController.listarCategorias);
 
-router.post('/horario', ServiceController.createHorario);
+router.post('/horario', ServicoController.criarHorario);
 
-router.get('/service/categoria/:categoria', ServiceController.serviceByCategory);
-router.get('/service/search/:search', ServiceController.serviceBySubstring);
-router.get('/service/id/:id', ServiceController.serviceByID);
-router.get('/service/cidade/:cidade', ServiceController.serviceByCity);
+router.get('/service/categoria/:categoria', ServicoController.servicosPorCategoria);
+router.get('/service/search/:search', ServicoController.servicosPorSubstring);
+router.get('/service/id/:id', ServicoController.servicoPorID);
+router.get('/service/cidade/:cidade', ServicoController.servicosPorCidade);
 
 module.exports = router;

@@ -1,6 +1,6 @@
-const Service = require('@models/Service');
+const Servico = require('@models/servico/Servico');
 
-async function createService(req, res) {
+async function criarServico(req, res) {
     const { 
         titulo,
         descricao,
@@ -17,7 +17,7 @@ async function createService(req, res) {
         agenda
     } = req.body;
 
-    const service = await Service.create({ 
+    const servico = await Servico.create({ 
         titulo,
         descricao,
         cnpj,
@@ -33,9 +33,9 @@ async function createService(req, res) {
         agenda
     });
 
-    return res.status(201).send({"service": service});
+    return res.status(201).send({"servico": servico});
 }
 
-module.exports = createService;
+module.exports = criarServico;
 
 

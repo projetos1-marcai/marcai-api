@@ -1,6 +1,6 @@
 const { Schema, model } = require('mongoose');
 
-const HorarySchema = new Schema({ 
+const HorarioSchema = new Schema({ 
     agenda: {
         type: String,
         required: true,
@@ -29,4 +29,4 @@ const HorarySchema = new Schema({
     }
 );
 
-module.exports = model('Horary', HorarySchema);
+module.exports = model('Horario', HorarioSchema);

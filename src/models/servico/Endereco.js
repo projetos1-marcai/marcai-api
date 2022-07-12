@@ -1,6 +1,6 @@
 const { Schema, model } = require('mongoose');
 
-const AddressSchema = new Schema({ 
+const EnderecoSchema = new Schema({ 
     numero: {
         type: String,
         required: false,
@@ -28,6 +28,6 @@ const AddressSchema = new Schema({
 );
 
 module.exports = {
-    "Address" : model('Address', AddressSchema),
-    AddressSchema
+    "Endereco" : model('Endereco', EnderecoSchema),
+    EnderecoSchema
 }

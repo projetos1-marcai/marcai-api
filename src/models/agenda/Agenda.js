@@ -7,7 +7,7 @@ const { Schema, model } = require('mongoose');
     Não é possivel o consumidor reserver um horário de 08:00hrs da segunda feira se já são 14:00hrs da tarde.
  */
 
-const ScheduleSchema = new Schema({ 
+const AgendaSchema = new Schema({ 
     servico: {
         type: String,
         required: true,
@@ -47,4 +47,4 @@ const ScheduleSchema = new Schema({
     }
 );
 
-module.exports = model('Schedule', ScheduleSchema);
+module.exports = model('Agenda', AgendaSchema);
