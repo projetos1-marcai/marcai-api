@@ -1,5 +1,5 @@
 const { Schema, model } = require('mongoose');
-const Endereco = require('@models/servico/Endereco').Endereco;
+const Endereco = require('@models/servico/Endereco').EnderecoSchema;
 
 const ServicoSchema = new Schema({ 
     titulo: {
@@ -41,24 +41,8 @@ const ServicoSchema = new Schema({
         default: []
     },
     endereco: {
-        numero: {
-            type: Number,
-            required: false
-        },
-        rua: {
-            type: String,
-            required: false
-        },
-        bairro: {
-            type: String,
-            required: false
-        },
-        cidade_id: {
-            type: Number,
-            required: false
-        },
-        required: false,
-        default: {}
+        type: Endereco,
+        required: false
     },
     formas_pagamento: {
         type: [Number],
@@ -70,7 +54,8 @@ const ServicoSchema = new Schema({
     },
     agenda: {
         type: String,
-        required: false
+        required: false,
+        default: ''
     }
 }, 
     {

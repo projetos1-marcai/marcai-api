@@ -18,7 +18,7 @@ const HorarioSchema = new Schema({
         required: false,
         default: true
     },
-    reserva: {
+    cliente: {
         type: String,
         required: false,
         default: null
@@ -29,4 +29,7 @@ const HorarioSchema = new Schema({
     }
 );
 
-module.exports = model('Horario', HorarioSchema);
+module.exports = {
+    "Horario" : model('Horario', HorarioSchema),
+    HorarioSchema
+}
