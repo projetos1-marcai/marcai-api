@@ -5,6 +5,7 @@ const ServiceCategoryENUM = require('@models/servico/CategoriaENUM');
 const bcrypt = require('bcrypt');
 
 const criarServico = require('../services/ServiceFunctions/criarServico');
+const atualizarServico = require('../services/ServiceFunctions/atualizarServico');
 const listarServicos = require('../services/ServiceFunctions/listarServicos');
 
 const listarCategorias = require('../services/ServiceFunctions/listarCategorias');
@@ -31,8 +32,8 @@ module.exports = {
         return
     },
 
-    async updateService(req, res) {
-        return
+    async atualizarServico(req, res) {
+        return atualizarServico(req, res);
     },
 
     async servicoPorID(req, res) {
@@ -61,5 +62,10 @@ module.exports = {
 
     async criarHorario(req, res) {
         return AgendaController.criarHorario(req, res);
+    },
+
+    async removerHorario(req, res) {
+        return AgendaController.removerHorario(req, res);
     }
+
 }

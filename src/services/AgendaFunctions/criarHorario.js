@@ -5,7 +5,7 @@ const getHoraObj = require("./utils/getHoraObj");
 const verificaHorario = require("./utils/verificaHorario");
 
 async function criarHorario(req, res) {
-    let servico = await Servico.findById(req.body.servico);
+    let servico = await Servico.findById(req.body.id_servico);
     let id_servico = servico._id.toString();
     let agenda = await Agenda.findOne({servico: id_servico});
 
@@ -38,7 +38,7 @@ async function criarHorario(req, res) {
         return res.status(404).send({'err': e})
     }
 
-    return res.status(201).send({"horario": horario});
+    return res.status(201).send({"agenda": agenda});
 }
 
 module.exports = criarHorario;
