@@ -1,7 +1,8 @@
 const Horario = require('@models/agenda/Horario').Horario;
 const Agenda = require("@models/agenda/Agenda");
-const getHoraObj = require("./utils/getHoraObj");
 const Servico = require("@models/servico/Servico");
+const getHoraObj = require("./utils/getHoraObj");
+const verificaHorario = require("./utils/verificaHorario");
 
 async function criarHorario(req, res) {
     let servico = await Servico.findById(req.body.servico);
@@ -17,6 +18,11 @@ async function criarHorario(req, res) {
     let h1 = getHoraObj(inicio)
     let h2 = getHoraObj(fim)
 
+    let horario_valido = verificaHorario(agenda[dia], h1, h2);
+    if (!horario_valido) {
+        return res.status(404).send({'err': "O horário não pode estar entre algum outro horário já cadastrado."});
+    }
+
     let id_agenda = agenda._id.toString();
     const horario = await Horario.create({ 
         agenda: id_agenda,
@@ -27,7 +33,6 @@ async function criarHorario(req, res) {
     try {
         agenda[dia].push(horario);
         agenda.save()
-
     }
     catch (e) {
         return res.status(404).send({'err': e})
