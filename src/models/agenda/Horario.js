@@ -1,5 +1,7 @@
 const { Schema, model } = require('mongoose');
 
+const Reserva = require('@models/agenda/Reserva').ReservaSchema;
+
 const HorarioSchema = new Schema({ 
     agenda: {
         type: String,
@@ -18,8 +20,8 @@ const HorarioSchema = new Schema({
         required: false,
         default: true
     },
-    cliente: {
-        type: String,
+    reserva: {
+        type: Reserva,
         required: false,
         default: null
     },
