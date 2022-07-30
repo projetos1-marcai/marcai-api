@@ -28,7 +28,8 @@ async function criarHorario(req, res) {
     const horario = await Horario.create({ 
         agenda: id_agenda,
         inicio: h1,
-        fim: h2
+        fim: h2,
+        dia: dia
     });
 
     try {

@@ -15,15 +15,19 @@ const HorarioSchema = new Schema({
         type: Date,
         required: true
     },
+    dia: {
+        type: String,
+        required: true
+    },
     disponivel: {
         type: Boolean,
         required: false,
         default: true
     },
-    reserva: {
-        type: Reserva,
+    reservas: {
+        type: [Reserva],
         required: false,
-        default: null
+        default: []
     },
 },
     {

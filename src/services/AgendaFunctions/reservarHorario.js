@@ -13,13 +13,24 @@ async function reservarHorario(req, res) {
             status: 1 // 1 = Pendente
         })
 
-        let horario = await Horario.findOneAndUpdate({_id: id_horario}, {
-            reserva: (!reserva) ? null : reserva
-        })
+        let horario = await Horario.findById({_id: id_horario});
 
-        // Necessário atualizar o horário da Agenda do Serviço
-        // Passando: ID do Horários + Dia desse Horário
-        // let agenda = await Agenda.findOneAndUpdate({})
+        horario.reservas.push(reserva);
+        horario.save();
+
+        let agenda = await Agenda.findById({_id: horario.agenda});
+
+        // Recuperando horários de um dia específico da Agenda
+        let horarios = agenda[horario.dia];
+
+        horario = await Horario.findById({_id: id_horario});
+        // Identificando o horário específico, para ter a Reserva atualizada
+        horarios = horarios.filter((horario) => horario._id != id_horario);
+        horarios.push(horario)
+
+        // Atualizando horários de um dia específico da Agenda
+        agenda[horario.dia] = horarios
+        agenda.save()
 
         return res.status(200).send({"horario": horario});
     } catch (error) {
