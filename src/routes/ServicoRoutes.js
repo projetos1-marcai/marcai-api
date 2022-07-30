@@ -9,9 +9,6 @@ router.post('/service/:id/atualizar', ServicoController.atualizarServico);
 router.get('/service-payment-methods', ServicoController.listarMeiosDePagamentos);
 router.get('/service-categories', ServicoController.listarCategorias);
 
-router.post('/horario', ServicoController.criarHorario);
-router.post('/horario/:id/remover', ServicoController.removerHorario);
-
 router.get('/service/categoria/:categoria', ServicoController.servicosPorCategoria);
 router.get('/service/search/:search', ServicoController.servicosPorSubstring);
 router.get('/service/id/:id', ServicoController.servicoPorID);

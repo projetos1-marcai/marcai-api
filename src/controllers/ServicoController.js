@@ -11,8 +11,6 @@ const servicoPorID = require('../services/ServicoFunctions/servicoPorID');
 const servicosPorSubstring = require('../services/ServicoFunctions/servicosPorSubstring');
 const servicosPorCidade = require('../services/ServicoFunctions/servicosPorCidade');
 
-const AgendaController = require('@controllers/AgendaController');
-
 module.exports = {
     async criarServico(req, res) {
         return criarServico(req, res);
@@ -52,14 +50,5 @@ module.exports = {
     
     async listarMeiosDePagamentos(req, res) {
         return listarMeiosDePagamentos(req, res);
-    },
-
-    async criarHorario(req, res) {
-        return AgendaController.criarHorario(req, res);
-    },
-
-    async removerHorario(req, res) {
-        return AgendaController.removerHorario(req, res);
     }
-
 }
