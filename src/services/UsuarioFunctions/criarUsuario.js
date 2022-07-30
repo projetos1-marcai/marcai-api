@@ -1,10 +1,10 @@
-const User = require('@models/usuario/User');
+const Usuario = require('@models/usuario/Usuario');
 const bcrypt = require('bcrypt');
 
 async function criarUsuario(req, res) {
     const { nome,email,telefone,senha,foto_url,bio,servicos } = req.body;
 
-        const emailAlreadyExists = await User.findOne({ "email": email });
+        const emailAlreadyExists = await Usuario.findOne({ "email": email });
 
         if (emailAlreadyExists) {
             return res.status(400).send({ message: "Email já cadastrado" });
@@ -12,7 +12,7 @@ async function criarUsuario(req, res) {
 
         try {
             const encryptedPassword = await bcrypt.hash(senha, parseInt(process.env.SALT_ROUNDS)); //encriptografia
-            const user = await User.create({
+            const user = await Usuario.create({
                 nome,email,telefone,foto_url,bio,servicos,
                 "senha": encryptedPassword,
             });

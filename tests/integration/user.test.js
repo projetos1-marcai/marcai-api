@@ -1,4 +1,4 @@
-const User = require('../../src/models/User')
+const Usuario = require('../../src/models/Usuario')
 const server = require('../../src/server');
 const chai = require('chai');
 const should = chai.should();
@@ -9,7 +9,7 @@ chai.use(chaiHttp);
 describe('User Tests',function() {
 
     before(async function () {
-        await User.deleteMany({});
+        await Usuario.deleteMany({});
       });
 
     it('Should create user',async function() {

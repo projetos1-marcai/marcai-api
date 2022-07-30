@@ -1,21 +1,15 @@
-const Service = require('@models/servico/Servico');
-const ServicePaymentMethodsENUM = require('@models/servico/MeioDePagamentoENUM');
-const ServiceCategoryENUM = require('@models/servico/CategoriaENUM');
+const criarServico = require('../services/ServicoFunctions/criarServico');
+const atualizarServico = require('../services/ServicoFunctions/atualizarServico');
+const listarServicos = require('../services/ServicoFunctions/listarServicos');
 
-const bcrypt = require('bcrypt');
+const listarCategorias = require('../services/ServicoFunctions/listarCategorias');
 
-const criarServico = require('../services/ServiceFunctions/criarServico');
-const atualizarServico = require('../services/ServiceFunctions/atualizarServico');
-const listarServicos = require('../services/ServiceFunctions/listarServicos');
+const listarMeiosDePagamentos = require('../services/ServicoFunctions/listarMeiosDePagamentos');
 
-const listarCategorias = require('../services/ServiceFunctions/listarCategorias');
-
-const listarMeiosDePagamentos = require('../services/ServiceFunctions/listarMeiosDePagamentos');
-
-const servicosPorCategoria = require('../services/ServiceFunctions/servicosPorCategoria');
-const servicoPorID = require('../services/ServiceFunctions/servicoPorID');
-const servicosPorSubstring = require('../services/ServiceFunctions/servicosPorSubstring');
-const servicosPorCidade = require('../services/ServiceFunctions/servicosPorCidade');
+const servicosPorCategoria = require('../services/ServicoFunctions/servicosPorCategoria');
+const servicoPorID = require('../services/ServicoFunctions/servicoPorID');
+const servicosPorSubstring = require('../services/ServicoFunctions/servicosPorSubstring');
+const servicosPorCidade = require('../services/ServicoFunctions/servicosPorCidade');
 
 const AgendaController = require('@controllers/AgendaController');
 

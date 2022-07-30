@@ -1,6 +1,6 @@
 const express = require('express');
-const UserRoutes = require('@routes/UserRoutes');
-const ServiceRoutes = require('@routes/ServiceRoutes');
+const UsuarioRoutes = require('@routes/UsuarioRoutes');
+const ServicoRoutes = require('@routes/ServicoRoutes');
 const app  = express();
 const cors = require('cors');
 const bodyParser = require('body-parser');
@@ -11,7 +11,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 
-app.use('/', UserRoutes);
-app.use('/', ServiceRoutes);
+app.use('/', UsuarioRoutes);
+app.use('/', ServicoRoutes);
 
 module.exports = app;

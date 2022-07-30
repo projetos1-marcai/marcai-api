@@ -1,7 +1,4 @@
-const User = require('@models/usuario/User');
-const bcrypt = require('bcrypt');
-
-const criarUsuario = require('../services/UserFunctions/criarUsuario')
+const criarUsuario = require('../services/UsuarioFunctions/criarUsuario')
 
 module.exports = {
     async criarUsuario(req, res) {
