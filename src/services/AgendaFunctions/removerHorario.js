@@ -24,6 +24,7 @@ async function removerHorario(req, res) {
             domingo: (dia == "domingo") ? horarios : agenda.domingo
         })
         await Horario.findByIdAndDelete({ _id: id_horario });
+        agenda = await Agenda.findOne({servico: id_servico});
         return res.status(200).send({"agenda": agenda});  
     } catch (error) {
         return res.status(404).send({"msg": "Horário não encontrado"});
