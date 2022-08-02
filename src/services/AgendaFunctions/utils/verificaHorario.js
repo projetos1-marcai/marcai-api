@@ -1,8 +1,6 @@
 function verificaHorario( horariosCadastrados, horarioInicio, horarioFim ) { 
-
     let result = true;
     horariosCadastrados.forEach(horarioCadastrado => {
-
         // Mesmo Intervalo
         if(horarioCadastrado.inicio.getTime() == horarioInicio.getTime() && horarioCadastrado.fim.getTime() == horarioFim.getTime() ){
             result = false;
