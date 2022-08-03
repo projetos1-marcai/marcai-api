@@ -21,11 +21,7 @@ async function editarHorario(req, res) {
         let h2 = getHoraObj(fim);
 
         let horarios = agenda[horario.dia];
-        console.log(horarios);
-        console.log("--------");
         horarios = horarios.filter(horario => horario._id.toString() != id_horario);
-        console.log(horarios);
-        console.log("********");
         
         let horario_valido = verificaHorario(horarios, h1, h2);
         if (horario_valido) {
@@ -35,7 +31,6 @@ async function editarHorario(req, res) {
             });
             horario = await Horario.findById({_id: id_horario});
             horarios.push(horario);
-            console.log(horarios);
     
             agenda = await Agenda.findOneAndUpdate({_id: horario.agenda}, {
                 segunda: (horario.dia == "segunda") ? horarios : agenda.segunda,
@@ -46,7 +41,9 @@ async function editarHorario(req, res) {
                 sabado:  (horario.dia == "sabado")  ? horarios : agenda.sabado,
                 domingo: (horario.dia == "domingo") ? horarios : agenda.domingo
             })
-            return res.status(200).send({"horario": horario});
+
+            agenda = await Agenda.findOne({_id: horario.agenda});
+            return res.status(200).send({"agenda": agenda});
         } else {
             return res.status(404).send({'err': "O horário não pode estar entre algum outro horário já cadastrado."});
         }
