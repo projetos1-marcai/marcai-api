@@ -1,5 +1,6 @@
 const Servico = require('@models/servico/Servico');
 const Agenda = require('@models/agenda/Agenda');
+const Usuario = require('../../models/usuario/Usuario');
 const Endereco = require('@models/servico/Endereco').Endereco;
 
 async function criarServico(req, res) {
@@ -7,7 +8,6 @@ async function criarServico(req, res) {
         titulo,
         descricao,
         cnpj,
-        fornecedor,
         logo_url,
         disponivel,
         presencial,
@@ -29,7 +29,7 @@ async function criarServico(req, res) {
         titulo,
         descricao,
         cnpj,
-        fornecedor,
+        fornecedor: req.user.nome,
         logo_url,
         disponivel,
         presencial,
@@ -47,6 +47,10 @@ async function criarServico(req, res) {
     servico = await Servico.findByIdAndUpdate(servico._id, {
         agenda: agenda._id
     })
+
+    await Usuario.findByIdAndUpdate({ _id: req.user._id }, {
+        fornecedor: true
+    });
 
     return res.status(200).send({"servico": servico});
 }

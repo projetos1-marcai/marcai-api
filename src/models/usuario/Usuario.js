@@ -35,6 +35,11 @@ const UsuarioSchema = new Schema({
         type: [String],
         required: false,
     },
+    fornecedor: {
+        type: Boolean,
+        required: false,
+        default: false
+    }
 },
     {
         timestamps: true,
