@@ -1,5 +1,5 @@
 const jwt = require('jsonwebtoken');
-const User = require('@models/User');
+const Usuario = require('@models/usuario/Usuario');
 require('dotenv/config');
 
 module.exports = {
@@ -28,17 +28,17 @@ authorize = (req, res, next, type) => {
         if (err)
             return res.status(401).send({ error: 'Token inválido' });
 
-        const user = await User.findOne({ _id: decoded.sub });
+        const user = await Usuario.findOne({ _id: decoded.idUser });
 
         if (!user)
             return res.status(404).send({ error: 'Usuário não existe!' });
 
-        const token_list = user.token_list;
-        if (!token_list.includes(token)) {
-            return res.status(401).send({ error: 'Token inválido' });
-        }
+        // const token_list = user.token_list;
+        // if (!token_list.includes(token)) {
+        //     return res.status(401).send({ error: 'Token inválido' });
+        // }
 
-        req.id = decoded.sub;
+        req.id = decoded.idUser;
         req.user = user;
         return next();
     })

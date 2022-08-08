@@ -1,10 +1,12 @@
 const router = require('express').Router();
 const AgendaController = require('@controllers/AgendaController');
+const auth = require('../middlewares/Auth')
 
-router.post('/horario', AgendaController.criarHorario);
-router.post('/horario/:id/remover', AgendaController.removerHorario);
-router.post('/horario/:id/reservar', AgendaController.reservarHorario);
-router.post('/horario/:id/editar', AgendaController.editarHorario);
+router.post('/horario', auth.authorizeUser, AgendaController.criarHorario);
+router.post('/horario/:id/editar', auth.authorizeUser, AgendaController.editarHorario);
+router.post('/horario/:id/remover', auth.authorizeUser, AgendaController.removerHorario);
+
+router.post('/horario/:id/reservar', auth.authorizeUser, AgendaController.reservarHorario);
 
 router.post('/reserva/:id/:status', AgendaController.statusHorario);
 

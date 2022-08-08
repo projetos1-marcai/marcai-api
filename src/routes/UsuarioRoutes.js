@@ -1,10 +1,12 @@
 const router = require('express').Router();
 const UsuarioController = require('@controllers/UsuarioController');
+const auth = require('../middlewares/Auth')
 
 router.post('/user', UsuarioController.criarUsuario);
-router.get('/user/:id', UsuarioController.usuarioPorID);
-router.get('/users', UsuarioController.listarUsuarios);
+router.post('/login', UsuarioController.login);
 
-router.post('/login', UsuarioController.login)
+router.get('/user/:id', auth.authorizeUser, UsuarioController.usuarioPorID);
+router.get('/users', auth.authorizeUser, UsuarioController.listarUsuarios);
+
 
 module.exports = router;
