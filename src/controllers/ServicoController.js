@@ -1,4 +1,5 @@
 const criarServico = require('../services/ServicoFunctions/criarServico');
+const deletarServico = require('../services/ServicoFunctions/deletarServico');
 const atualizarServico = require('../services/ServicoFunctions/atualizarServico');
 const listarServicos = require('../services/ServicoFunctions/listarServicos');
 
@@ -20,8 +21,8 @@ module.exports = {
         return listarServicos(req, res);
     },
 
-    async deleteService(req, res) {
-        return
+    async deletarServico(req, res) {
+        return deletarServico(req, res);
     },
 
     async atualizarServico(req, res) {
