@@ -3,7 +3,8 @@ const ServicoController = require('@controllers/ServicoController');
 const auth = require('../middlewares/Auth')
 
 router.post('/service', auth.authorizeUser, ServicoController.criarServico);
-router.post('/service/:id/atualizar', auth.authorizeUser, ServicoController.atualizarServico);
+router.put('/service/:id', auth.authorizeUser, ServicoController.atualizarServico);
+router.delete('/service/:id', auth.authorizeUser, ServicoController.deletarServico);
 
 router.get('/service-payment-methods', auth.authorizeUser, ServicoController.listarMeiosDePagamentos);
 
