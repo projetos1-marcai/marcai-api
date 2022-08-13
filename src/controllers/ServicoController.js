@@ -14,6 +14,7 @@ const servicosPorCidade = require('../services/ServicoFunctions/servicosPorCidad
 
 const servicosByStatus = require('../services/ServicoFunctions/servicosByStatus');
 const listarStatusServicos = require('../services/ServicoFunctions/listarStatusServicos');
+const avaliaCadastroServico = require('../services/ServicoFunctions/avaliaCadastroServico');
 
 module.exports = {
     async criarServico(req, res) {
@@ -62,5 +63,9 @@ module.exports = {
 
     async listarStatusServicos(req, res) {
         return listarStatusServicos(req, res);
+    },
+
+    async avaliaCadastroServico(req, res) {
+        return avaliaCadastroServico(req, res);
     }
 }

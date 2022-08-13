@@ -57,7 +57,7 @@ const ServicoSchema = new Schema({
         required: false,
         default: ''
     },
-    status: {
+    aprovacao: {
         type: Number,
         default: 1
     }
