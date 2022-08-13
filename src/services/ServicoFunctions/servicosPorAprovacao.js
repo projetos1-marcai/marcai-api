@@ -1,6 +1,6 @@
 const Servico = require('@models/servico/Servico');
 
-async function servicosByStatus(req, res) {
+async function servicosPorAprovacao(req, res) {
     try {
         const servicos = await Servico.find({status: req.params.status});
         return res.status(200).send({"servicos": servicos});
@@ -9,4 +9,4 @@ async function servicosByStatus(req, res) {
     }
 }
 
-module.exports = servicosByStatus;
+module.exports = servicosPorAprovacao;
