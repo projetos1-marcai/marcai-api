@@ -8,9 +8,9 @@ router.post('/horario/:id/remover', auth.authorizeUser, AgendaController.remover
 
 router.post('/horario/:id/reservar', auth.authorizeUser, AgendaController.reservarHorario);
 
-router.post('/reserva/:id/:status', AgendaController.statusHorario);
+router.post('/reserva/:id/:status', auth.authorizeUser, AgendaController.statusHorario);
 
-router.get('/reserva/:id/:status', AgendaController.listarReservasPorStatus);
+router.get('/reserva/:id/:status', auth.authorizeUser, AgendaController.listarReservasPorStatus);
 
 router.get('/status-reserva', AgendaController.listarStatusReserva);
 
