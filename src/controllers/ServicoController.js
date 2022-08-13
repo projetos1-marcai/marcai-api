@@ -12,6 +12,9 @@ const servicoPorID = require('../services/ServicoFunctions/servicoPorID');
 const servicosPorSubstring = require('../services/ServicoFunctions/servicosPorSubstring');
 const servicosPorCidade = require('../services/ServicoFunctions/servicosPorCidade');
 
+const servicosByStatus = require('../services/ServicoFunctions/servicosByStatus');
+const listarStatusServicos = require('../services/ServicoFunctions/listarStatusServicos');
+
 module.exports = {
     async criarServico(req, res) {
         return criarServico(req, res);
@@ -51,5 +54,13 @@ module.exports = {
     
     async listarMeiosDePagamentos(req, res) {
         return listarMeiosDePagamentos(req, res);
+    },
+
+    async servicosByStatus(req, res) {
+        return servicosByStatus(req, res);
+    },
+
+    async listarStatusServicos(req, res) {
+        return listarStatusServicos(req, res);
     }
 }

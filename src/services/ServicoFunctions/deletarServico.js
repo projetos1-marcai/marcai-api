@@ -33,8 +33,10 @@ async function deletarServico(req, res) {
 
             reservas = horario.reservas;
             for (let p = 0 ; p < reservas.length ; p++) {
-                reserva = await Reserva.findByIdAndDelete({_id: reservas[p]._id});
-                if (!reserva) return res.status(404).send({"message": 'Falha ao remover Reserva do Horário da Agenda desse Serviço.', "e": e});
+                if (reservas[p].status != 2) {
+                    reserva = await Reserva.findByIdAndDelete({_id: reservas[p]._id});
+                    if (!reserva) return res.status(404).send({"message": 'Falha ao remover Reserva do Horário da Agenda desse Serviço.', "e": e});
+                }
             }
         }
         i++;

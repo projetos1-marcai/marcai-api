@@ -56,6 +56,10 @@ const ServicoSchema = new Schema({
         type: String,
         required: false,
         default: ''
+    },
+    status: {
+        type: Number,
+        default: 1
     }
 }, 
     {

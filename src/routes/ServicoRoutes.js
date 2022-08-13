@@ -9,11 +9,13 @@ router.delete('/service/:id', auth.authorizeUser, ServicoController.deletarServi
 router.get('/service-payment-methods', auth.authorizeUser, ServicoController.listarMeiosDePagamentos);
 
 router.get('/service-categories', ServicoController.listarCategorias);
+router.get('/services-status', ServicoController.listarStatusServicos);
 router.get('/services', ServicoController.listarServicos);
 
 router.get('/service/categoria/:categoria', ServicoController.servicosPorCategoria);
 router.get('/service/search/:search', ServicoController.servicosPorSubstring);
 router.get('/service/id/:id', ServicoController.servicoPorID);
 router.get('/service/cidade/:cidade', ServicoController.servicosPorCidade);
+router.get('/services/status/:status', ServicoController.servicosByStatus);
 
 module.exports = router;
