@@ -4,6 +4,8 @@ const listarUsuarios = require('../services/UsuarioFunctions/listarUsuarios');
 
 const loginUsuario = require('../services/UsuarioFunctions/loginUsuario')
 
+const setAdmin = require('../services/UsuarioFunctions/setAdmin');
+
 module.exports = {
     async criarUsuario(req, res) {
         return criarUsuario(req, res);
@@ -27,5 +29,9 @@ module.exports = {
 
     async login(req, res) {
         return loginUsuario(req, res);
+    },
+
+    async setAdmin(req, res) {
+        return setAdmin(req, res);
     }
 }

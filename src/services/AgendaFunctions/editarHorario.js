@@ -17,6 +17,9 @@ async function editarHorario(req, res) {
         let horario = await Horario.findById({_id: id_horario});
         let agenda = await Agenda.findOne({_id: horario.agenda});
 
+        if (!req.user.servicos.includes(agenda.servico)) return res.status(404).send({"message": 'Apenas o fornecedor do serviço pode modificar horários em sua agenda.'});
+
+
         let h1 = getHoraObj(inicio);
         let h2 = getHoraObj(fim);
 

@@ -7,18 +7,19 @@ async function reservarHorario(req, res) {
     try {
         let id_horario = req.params.id;
 
+        let horario = await Horario.findById({_id: id_horario});
+        let agenda = await Agenda.findById({_id: horario.agenda});
+
+        if (req.user.servicos.includes(agenda.servico)) return res.status(404).send({"message": 'O fornecedor não pode reservar um horário no próprio serviço.'});
+
         let reserva = await Reserva.create({
             cliente: "ID do Cliente",
             horario: id_horario,
             status: 1 // 1 = Pendente
         })
 
-        let horario = await Horario.findById({_id: id_horario});
-
         horario.reservas.push(reserva);
         horario.save();
-
-        let agenda = await Agenda.findById({_id: horario.agenda});
 
         // Recuperando horários de um dia específico da Agenda
         let horarios = agenda[horario.dia];

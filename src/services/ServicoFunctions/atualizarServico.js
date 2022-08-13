@@ -13,8 +13,10 @@ async function atualizarServico(req, res) {
         valor,
         endereco,
         formas_pagamento,
-        categoria
+        categoria,
     } = req.body;
+
+    if (!req.user.servicos.includes(req.params.id)) return res.status(404).send({"message": 'Apenas o fornecedor do serviço pode atualizar seus atributos.'});
 
     let servico = await Servico.findById({_id: req.params.id})
     servico = await Servico.findByIdAndUpdate({_id: req.params.id}, {

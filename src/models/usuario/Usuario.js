@@ -39,7 +39,11 @@ const UsuarioSchema = new Schema({
         type: Boolean,
         required: false,
         default: false
-    }
+    },
+    admin: {
+        type: Boolean,
+        default: false
+    },
 },
     {
         timestamps: true,
