@@ -18,6 +18,6 @@ router.get('/service/id/:id', ServicoController.servicoPorID);
 router.get('/service/cidade/:cidade', ServicoController.servicosPorCidade);
 router.get('/services/aprovacao/:aprovacao', ServicoController.servicosPorAprovacao);
 
-router.put('/service/avaliar-cadastro/:id_servico/:aprovacao', ServicoController.avaliaCadastroServico);
+router.put('/service/avaliar-cadastro/:id_servico/:aprovacao', auth.authorizeUser, ServicoController.avaliaCadastroServico);
 
 module.exports = router;
