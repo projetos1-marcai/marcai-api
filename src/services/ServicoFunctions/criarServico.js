@@ -48,8 +48,15 @@ async function criarServico(req, res) {
         agenda: agenda._id
     })
 
+    let usuario = await Usuario.findById({ _id: req.user._id });
+
+    let servicos = usuario.servicos;
+
+    servicos.push(servico._id.toString());
+
     await Usuario.findByIdAndUpdate({ _id: req.user._id }, {
-        fornecedor: true
+        fornecedor: true,
+        servicos: servicos
     });
 
     return res.status(200).send({"servico": servico});
