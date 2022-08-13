@@ -8,5 +8,6 @@ router.post('/login', UsuarioController.login);
 router.get('/user/:id', auth.authorizeUser, UsuarioController.usuarioPorID);
 router.get('/users', auth.authorizeUser, UsuarioController.listarUsuarios);
 
+router.put('/admin/:id', auth.authorizeUser, UsuarioController.setAdmin);
 
 module.exports = router;
