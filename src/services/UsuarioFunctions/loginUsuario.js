@@ -34,6 +34,17 @@ async function loginUsuario(req, res) {
             //     token_list: new_token_list
             // });
 
+            let userDTO = {
+                nome: usuario.nome,
+                email: usuario.email,
+                telefone: usuario.telefone,
+                foto_url: usuario.foto_url,
+                bio: usuario.bio,
+                servicos: usuario.servicos,
+                fornecedor: usuario.fornecedor,
+                admin: usuario.admin,
+            }
+
             let response = {
                 auth: true,
                 token: `Bearer ` + token,
@@ -41,11 +52,12 @@ async function loginUsuario(req, res) {
 
                 // name: usuario.name,
                 // urlUser: usuario.urlUser
+                usuario: userDTO
             }
 
             return res.status(HTTP_CODE_OK).json(response);
         } else {
-            return res.status(HTTP_CODE_UNAUTHORIZED).json({ message: 'Senha inválida' });
+            return res.status(HTTP_CODE_UNAUTHORIZED).json({ message: 'Senha inválida'});
         }
     }
 }
