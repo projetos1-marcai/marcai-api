@@ -23,8 +23,8 @@ async function loginUsuario(req, res) {
         const match = await bcrypt.compare(senha, usuario.senha);
 
         if (match) {
-            let idUser = usuario._id;
-            const token = jwt.sign({ idUser }, process.env.JWT_SECRET, {
+            let id_usuario = usuario._id;
+            const token = jwt.sign({ id_usuario }, process.env.JWT_SECRET, {
                 expiresIn: 60 * 60 * 24 // expires in 24 hours
             });
 
@@ -35,6 +35,7 @@ async function loginUsuario(req, res) {
             // });
 
             let userDTO = {
+                id_usuario: usuario._id,
                 nome: usuario.nome,
                 email: usuario.email,
                 telefone: usuario.telefone,
