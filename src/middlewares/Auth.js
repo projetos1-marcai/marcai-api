@@ -28,7 +28,7 @@ authorize = (req, res, next, type) => {
         if (err)
             return res.status(401).send({ error: 'Token inválido' });
 
-        const user = await Usuario.findOne({ _id: decoded.idUser });
+        const user = await Usuario.findOne({ _id: decoded.id_usuario });
 
         if (!user)
             return res.status(404).send({ error: 'Usuário não existe!' });
@@ -38,7 +38,7 @@ authorize = (req, res, next, type) => {
         //     return res.status(401).send({ error: 'Token inválido' });
         // }
 
-        req.id = decoded.idUser;
+        req.id = decoded.id_usuario;
         req.user = user;
         return next();
     })
