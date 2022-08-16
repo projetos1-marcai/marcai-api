@@ -16,4 +16,7 @@ router.get('/status-reserva', AgendaController.listarStatusReserva);
 
 router.get('/agenda/:id', AgendaController.agendaPorID);
 
+router.get('/horario/:id', auth.authorizeUser, AgendaController.horarioPorID);
+router.get('/reserva/:id', auth.authorizeUser, AgendaController.reservaPorID);
+
 module.exports = router;
