@@ -13,7 +13,7 @@ async function reservarHorario(req, res) {
         if (req.user.servicos.includes(agenda.servico)) return res.status(404).send({"message": 'O fornecedor não pode reservar um horário no próprio serviço.'});
 
         let reserva = await Reserva.create({
-            cliente: "ID do Cliente",
+            cliente: req.user._id.toString(),
             horario: id_horario,
             status: 1 // 1 = Pendente
         })
