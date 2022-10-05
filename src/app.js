@@ -12,8 +12,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 
-app.use('/', UsuarioRoutes);
-app.use('/', ServicoRoutes);
-app.use('/', AgendaRoutes);
+app.use('/user', UsuarioRoutes);
+app.use('/service', ServicoRoutes);
+app.use('/agenda', AgendaRoutes);
 
 module.exports = app;

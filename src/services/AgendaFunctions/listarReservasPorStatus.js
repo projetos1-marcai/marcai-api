@@ -4,8 +4,8 @@ const Agenda = require("@models/agenda/Agenda");
 
 async function listarReservasPorStatus(req, res) {
     try {
-        let id_agenda = req.params.id;
-        let id_status = req.params.status;
+        let id_agenda = req.params.id_agenda;
+        let id_status = req.params.id_status;
         const horarios = await Horario.find({agenda: id_agenda});
         let reservas = []
         horarios.forEach(horario => {

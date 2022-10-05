@@ -6,16 +6,17 @@ async function statusHorario(req, res) {
 
     try {
         
+        let id_reserva = req.params.id_reserva;
+        let id_status = req.params.id_status;
+
         let reserva = await Reserva.findById({_id: id_reserva});
+        let id_horario = reserva.horario;
+
         let horario = await Horario.findById({_id: id_horario});
         let agenda = await Agenda.findById({_id: horario.agenda});
 
         if (!req.user.servicos.includes(agenda.servico)) return res.status(404).send({"message": 'Apenas o fornecedor do serviço pode aceitar uma reserva.'});
 
-        let id_reserva = req.params.id;
-        let id_status = req.params.status;
-
-        let id_horario = reserva.horario;
         reserva.status = id_status;
         reserva.save();
 
