@@ -17,4 +17,7 @@ router.get('/:id_agenda/list-reserva-by-status/:id_status', auth.authorizeUser, 
 router.post('/horario/reserva/criar/:id_horario', auth.authorizeUser, AgendaController.reservarHorario);
 router.put('/horario/reserva/setar-status/:id_reserva/:id_status', auth.authorizeUser, AgendaController.statusHorario);
 
+router.get('/horario/:id', auth.authorizeUser, AgendaController.horarioPorID);
+router.get('/reserva/:id', auth.authorizeUser, AgendaController.reservaPorID);
+
 module.exports = router;

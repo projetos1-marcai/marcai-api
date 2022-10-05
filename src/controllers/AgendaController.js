@@ -6,6 +6,8 @@ const statusHorario = require('../services/AgendaFunctions/statusHorario');
 const listarReservasPorStatus = require('../services/AgendaFunctions/listarReservasPorStatus');
 const listarStatusReserva = require('../services/AgendaFunctions/listarStatusReserva');
 const agendaPorID = require('../services/AgendaFunctions/agendaPorID');
+const horarioPorID = require('../services/AgendaFunctions/horarioPorID');
+const reservaPorID = require('../services/AgendaFunctions/reservaPorID');
 
 module.exports = {
     async criarHorario(req, res) {
@@ -38,6 +40,14 @@ module.exports = {
 
     async agendaPorID(req, res) {
         return agendaPorID(req, res);
+    },
+
+    async horarioPorID(req, res) {
+        return horarioPorID(req, res);
+    },
+
+    async reservaPorID(req, res) {
+        return reservaPorID(req, res);
     },
 
 }
