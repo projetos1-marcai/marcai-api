@@ -2,7 +2,7 @@ const Horario = require('@models/agenda/Horario').Horario;
 const Reserva = require('@models/agenda/Reserva').Reserva;
 const Agenda = require("@models/agenda/Agenda");
 
-async function statusHorario(req, res) {
+async function setarStatusReserva(req, res) {
 
     try {
         
@@ -46,4 +46,4 @@ async function statusHorario(req, res) {
     
 }
 
-module.exports = statusHorario;
+module.exports = setarStatusReserva;

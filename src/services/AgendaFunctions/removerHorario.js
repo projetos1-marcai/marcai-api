@@ -3,10 +3,8 @@ const Agenda = require("@models/agenda/Agenda");
 
 async function removerHorario(req, res) {
 
-    const {
-        id_servico,
-        dia
-    } = req.body;
+    const { dia } = req.body;
+    const id_servico = req.params.id_servico;
 
     try {
         let id_horario = req.params.id_horario;
