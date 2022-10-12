@@ -6,7 +6,6 @@ async function atualizarServico(req, res) {
         titulo,
         descricao,
         cnpj,
-        fornecedor,
         logo_url,
         disponivel,
         presencial,
@@ -16,14 +15,13 @@ async function atualizarServico(req, res) {
         categoria,
     } = req.body;
 
-    if (!req.user.servicos.includes(req.params.id)) return res.status(404).send({"message": 'Apenas o fornecedor do serviço pode atualizar seus atributos.'});
+    if (!req.user.servicos.includes(req.params.id_servico)) return res.status(404).send({"message": 'Apenas o fornecedor do serviço pode atualizar seus atributos.'});
 
-    let servico = await Servico.findById({_id: req.params.id})
-    servico = await Servico.findByIdAndUpdate({_id: req.params.id}, {
+    let servico = await Servico.findById({_id: req.params.id_servico})
+    servico = await Servico.findByIdAndUpdate({_id: req.params.id_servico}, {
         titulo: (titulo !== undefined && titulo !== "") ? titulo : servico.titulo,
         descricao: (descricao !== undefined && descricao !== "") ? descricao : servico.descricao,
         cnpj: (cnpj !== undefined && cnpj !== "") ? cnpj : servico.cnpj,
-        fornecedor: (fornecedor !== undefined && fornecedor !== "") ? fornecedor : servico.fornecedor,
         logo_url: (logo_url !== undefined && logo_url !== "") ? logo_url : servico.logo_url,
         disponivel: (disponivel !== undefined && disponivel !== "") ? disponivel : servico.disponivel,
         presencial: (presencial !== undefined && presencial !== "") ? presencial : servico.presencial,

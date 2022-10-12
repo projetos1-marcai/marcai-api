@@ -7,10 +7,10 @@ const Reserva = require('@models/agenda/Reserva').Reserva;
 
 async function deletarServico(req, res) {
 
-    if (!req.user.servicos.includes(req.params.id)) return res.status(404).send({"message": 'Falha ao encontrar Serviço.'});
+    if (!req.user.servicos.includes(req.params.id_servico)) return res.status(404).send({"message": 'Falha ao encontrar Serviço.'});
     if (req.user.servicos.length < 2) return res.status(404).send({"message": 'Um Fornecedor deve ter ao menos um Serviço registrado.'});
 
-    let servico = await Servico.findByIdAndDelete({_id: req.params.id});
+    let servico = await Servico.findByIdAndDelete({_id: req.params.id_servico});
     if (!servico) return res.status(404).send({"message": 'Falha ao encontrar Serviço.'});
 
     let idEndereco = servico.endereco._id.toString().trim()
