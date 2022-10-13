@@ -30,6 +30,7 @@ async function atualizarServico(req, res) {
         formas_pagamento: (formas_pagamento !== undefined && formas_pagamento !== "") ? formas_pagamento : servico.formas_pagamento,
         categoria: (categoria !== undefined && categoria !== "") ? categoria : servico.categoria,
     })
+    servico = await Servico.findById({_id: req.params.id_servico})
 
     return res.status(200).send({"servico": servico});
 }

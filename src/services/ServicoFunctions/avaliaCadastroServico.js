@@ -13,7 +13,7 @@ async function avaliaCadastroServico(req, res) {
         aprovacao: (id_aprovacao !== undefined && id_aprovacao !== "") ? id_aprovacao : servico.aprovacao,
     })
     
-    let message = `Cadastro do serviço: ${servico.nome} avaliado para: ${id_aprovacao}.`;
+    let message = `Cadastro do serviço: ${servico.titulo} avaliado para: ${id_aprovacao}.`;
     return res.status(200).send({"message": message});
 }
 
