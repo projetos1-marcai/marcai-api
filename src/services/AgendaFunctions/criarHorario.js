@@ -5,9 +5,9 @@ const getHoraObj = require("./utils/getHoraObj");
 const verificaHorario = require("./utils/verificaHorario");
 
 async function criarHorario(req, res) {
-    let servico = await Servico.findById(req.body.id_servico);
+    let servico = await Servico.findById(req.params.id_servico);
 
-    if (!req.user.servicos.includes(req.body.id_servico)) return res.status(404).send({"message": 'Apenas o fornecedor do serviço pode criar horários em sua agenda.'});
+    if (!req.user.servicos.includes(req.params.id_servico)) return res.status(404).send({"message": 'Apenas o fornecedor do serviço pode criar horários em sua agenda.'});
 
     if (servico === null) return res.status(404).send({'err': 'Servico não encontrado.'});
     let id_servico = servico._id.toString();

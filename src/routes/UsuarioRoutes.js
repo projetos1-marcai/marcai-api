@@ -2,12 +2,14 @@ const router = require('express').Router();
 const UsuarioController = require('@controllers/UsuarioController');
 const auth = require('../middlewares/Auth')
 
-router.post('/user', UsuarioController.criarUsuario);
+router.post('/', UsuarioController.criarUsuario);
 router.post('/login', UsuarioController.login);
 
-router.get('/user/:id', auth.authorizeUser, UsuarioController.usuarioPorID);
-router.get('/users', auth.authorizeUser, UsuarioController.listarUsuarios);
+router.get('/list', auth.authorizeUser, UsuarioController.listarUsuarios);
+router.get('/fornecedores', UsuarioController.listarFornecedores);
+router.get('/:id_usuario', auth.authorizeUser, UsuarioController.usuarioPorID);
 
-router.put('/admin/:id', auth.authorizeUser, UsuarioController.setAdmin);
+// Rota destinada para Admin
+router.put('/admin/set-admin/:id_usuario', auth.authorizeUser, UsuarioController.setAdmin);
 
 module.exports = router;

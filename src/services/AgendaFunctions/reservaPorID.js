@@ -4,7 +4,7 @@ const Reserva = require('@models/agenda/Reserva').Reserva;
 
 async function reservaPorID(req, res) {
     try {
-        let reserva = await Reserva.findById({_id: req.params.id});
+        let reserva = await Reserva.findById({_id: req.params.id_reserva});
         let horario = await Horario.findById({_id: reserva.horario});
         let agenda = await Agenda.findById({_id: horario.agenda});
 

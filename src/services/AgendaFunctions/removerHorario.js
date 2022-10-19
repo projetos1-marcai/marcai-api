@@ -3,13 +3,11 @@ const Agenda = require("@models/agenda/Agenda");
 
 async function removerHorario(req, res) {
 
-    const {
-        id_servico,
-        dia
-    } = req.body;
+    const { dia } = req.body;
+    const id_servico = req.params.id_servico;
 
     try {
-        let id_horario = req.params.id;
+        let id_horario = req.params.id_horario;
         let agenda = await Agenda.findOne({servico: id_servico});
 
         if (!req.user.servicos.includes(agenda.servico)) return res.status(404).send({"message": 'Apenas o fornecedor do serviço pode remover horários da sua agenda.'});

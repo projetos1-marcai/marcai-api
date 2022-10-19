@@ -12,7 +12,6 @@ async function criarServico(req, res) {
         disponivel,
         presencial,
         valor,
-        avaliacoes,
         endereco,
         formas_pagamento,
         categoria
@@ -29,12 +28,11 @@ async function criarServico(req, res) {
         titulo,
         descricao,
         cnpj,
-        fornecedor: req.user.nome,
+        fornecedor: req.user._id,
         logo_url,
         disponivel,
         presencial,
         valor,
-        avaliacoes,
         endereco,
         formas_pagamento,
         categoria

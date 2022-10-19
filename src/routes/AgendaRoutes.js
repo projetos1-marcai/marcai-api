@@ -2,21 +2,22 @@ const router = require('express').Router();
 const AgendaController = require('@controllers/AgendaController');
 const auth = require('../middlewares/Auth')
 
-router.post('/horario', auth.authorizeUser, AgendaController.criarHorario);
-router.post('/horario/:id/editar', auth.authorizeUser, AgendaController.editarHorario);
-router.post('/horario/:id/remover', auth.authorizeUser, AgendaController.removerHorario);
+// Agenda
+router.get('/:id_agenda', AgendaController.agendaPorID);
 
-router.post('/horario/:id/reservar', auth.authorizeUser, AgendaController.reservarHorario);
+// Horário
+router.post('/horario/:id_servico', auth.authorizeUser, AgendaController.criarHorario);
+router.put('/horario/:id_horario', auth.authorizeUser, AgendaController.editarHorario);
+router.delete('/horario/:id_servico/:id_horario', auth.authorizeUser, AgendaController.removerHorario);
 
-router.post('/reserva/:id/:status', auth.authorizeUser, AgendaController.statusHorario);
+// Reserva
+router.get('/horario/reserva/list-status', AgendaController.listarStatusReserva);
+router.get('/:id_agenda/list-reserva-por-status/:id_status', auth.authorizeUser, AgendaController.listarReservasPorStatus);
 
-router.get('/reserva/:id/:status', auth.authorizeUser, AgendaController.listarReservasPorStatus);
+router.post('/horario/reservar/:id_horario', auth.authorizeUser, AgendaController.reservarHorario);
+router.put('/horario/reserva/set-status/:id_reserva/:id_status', auth.authorizeUser, AgendaController.setarStatusReserva);
 
-router.get('/status-reserva', AgendaController.listarStatusReserva);
-
-router.get('/agenda/:id', AgendaController.agendaPorID);
-
-router.get('/horario/:id', auth.authorizeUser, AgendaController.horarioPorID);
-router.get('/reserva/:id', auth.authorizeUser, AgendaController.reservaPorID);
+router.get('/horario/:id_horario', auth.authorizeUser, AgendaController.horarioPorID);
+router.get('/reserva/:id_reserva', auth.authorizeUser, AgendaController.reservaPorID);
 
 module.exports = router;

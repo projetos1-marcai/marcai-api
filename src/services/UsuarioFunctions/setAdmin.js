@@ -5,7 +5,7 @@ async function setAdmin(req, res) {
         return res.status(404).send({"message": 'Você precisa ter autorização para tornar outro Usuário Admin.'});
     }
     try {
-        let usuario = await Usuario.findOneAndUpdate({_id: req.params.id}, {
+        let usuario = await Usuario.findOneAndUpdate({_id: req.params.id_usuario}, {
             admin: true
         });
         let message = `Usuário: ${usuario.nome}, de e-mail: ${usuario.email}, atualizado para Admin com sucesso.`;

@@ -34,6 +34,7 @@ const UsuarioSchema = new Schema({
     servicos: {
         type: [String],
         required: false,
+        default: []
     },
     fornecedor: {
         type: Boolean,

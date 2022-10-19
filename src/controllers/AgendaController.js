@@ -2,7 +2,7 @@ const criarHorario = require('../services/AgendaFunctions/criarHorario');
 const removerHorario = require('../services/AgendaFunctions/removerHorario');
 const editarHorario = require('../services/AgendaFunctions/editarHorario');
 const reservarHorario = require('../services/AgendaFunctions/reservarHorario');
-const statusHorario = require('../services/AgendaFunctions/statusHorario');
+const setarStatusReserva = require('../services/AgendaFunctions/setarStatusReserva');
 const listarReservasPorStatus = require('../services/AgendaFunctions/listarReservasPorStatus');
 const listarStatusReserva = require('../services/AgendaFunctions/listarStatusReserva');
 const agendaPorID = require('../services/AgendaFunctions/agendaPorID');
@@ -22,8 +22,8 @@ module.exports = {
         return reservarHorario(req, res);
     },
 
-    async statusHorario(req, res) {
-        return statusHorario(req, res);
+    async setarStatusReserva(req, res) {
+        return setarStatusReserva(req, res);
     },
 
     async listarReservasPorStatus(req, res) {

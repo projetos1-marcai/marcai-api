@@ -12,7 +12,7 @@ async function editarHorario(req, res) {
             fim
         } = req.body;
 
-        let id_horario = req.params.id;
+        let id_horario = req.params.id_horario;
 
         let horario = await Horario.findById({_id: id_horario});
         let agenda = await Agenda.findOne({_id: horario.agenda});
