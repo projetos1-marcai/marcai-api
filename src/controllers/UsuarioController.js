@@ -1,9 +1,8 @@
 const criarUsuario = require('../services/UsuarioFunctions/criarUsuario');
 const usuarioPorID = require('../services/UsuarioFunctions/usuarioPorID');
 const listarUsuarios = require('../services/UsuarioFunctions/listarUsuarios');
-
+const listarFornecedores = require('../services/UsuarioFunctions/listarFornecedores');
 const loginUsuario = require('../services/UsuarioFunctions/loginUsuario')
-
 const setAdmin = require('../services/UsuarioFunctions/setAdmin');
 const removerUsuario = require('../services/UsuarioFunctions/removerUsuario');
 
@@ -14,6 +13,10 @@ module.exports = {
 
     async listarUsuarios(req, res) {
         return listarUsuarios(req, res);
+    },
+
+    async listarFornecedores(req, res) {
+        return listarFornecedores(req, res);
     },
 
     async usuarioPorID(req, res) {
