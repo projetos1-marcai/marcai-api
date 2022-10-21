@@ -10,5 +10,6 @@ router.get('/:id_usuario', auth.authorizeUser, UsuarioController.usuarioPorID);
 
 // Rota destinada para Admin
 router.put('/admin/set-admin/:id_usuario', auth.authorizeUser, UsuarioController.setAdmin);
+router.delete('/:id_usuario', auth.authorizeUser, UsuarioController.removerUsuario);
 
 module.exports = router;

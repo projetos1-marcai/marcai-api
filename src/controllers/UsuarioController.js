@@ -5,6 +5,7 @@ const listarUsuarios = require('../services/UsuarioFunctions/listarUsuarios');
 const loginUsuario = require('../services/UsuarioFunctions/loginUsuario')
 
 const setAdmin = require('../services/UsuarioFunctions/setAdmin');
+const removerUsuario = require('../services/UsuarioFunctions/removerUsuario');
 
 module.exports = {
     async criarUsuario(req, res) {
@@ -19,8 +20,8 @@ module.exports = {
         return usuarioPorID(req, res);
     },
 
-    async deleteUser(req, res) {
-        return
+    async removerUsuario(req, res) {
+        return removerUsuario(req, res);
     },
 
     async updateUser(req, res) {
