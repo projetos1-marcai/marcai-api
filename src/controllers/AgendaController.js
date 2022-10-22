@@ -8,6 +8,7 @@ const listarStatusReserva = require('../services/AgendaFunctions/listarStatusRes
 const agendaPorID = require('../services/AgendaFunctions/agendaPorID');
 const horarioPorID = require('../services/AgendaFunctions/horarioPorID');
 const reservaPorID = require('../services/AgendaFunctions/reservaPorID');
+const reservasUsuario = require('../services/AgendaFunctions/reservasUsuario');
 
 module.exports = {
     async criarHorario(req, res) {
@@ -48,6 +49,10 @@ module.exports = {
 
     async reservaPorID(req, res) {
         return reservaPorID(req, res);
+    },
+
+    async reservasUsuario(req, res) {
+        return reservasUsuario(req, res);
     },
 
 }

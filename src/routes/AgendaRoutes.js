@@ -20,4 +20,6 @@ router.put('/horario/reserva/set-status/:id_reserva/:id_status', auth.authorizeU
 router.get('/horario/:id_horario', auth.authorizeUser, AgendaController.horarioPorID);
 router.get('/reserva/:id_reserva', auth.authorizeUser, AgendaController.reservaPorID);
 
+router.get('/usuario/reservas', auth.authorizeUser, AgendaController.reservasUsuario);
+
 module.exports = router;
