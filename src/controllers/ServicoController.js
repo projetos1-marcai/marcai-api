@@ -15,6 +15,8 @@ const servicosPorCidade = require('../services/ServicoFunctions/servicosPorCidad
 const servicosPorAprovacao = require('../services/ServicoFunctions/servicosPorAprovacao');
 const listarStatusServicos = require('../services/ServicoFunctions/listarStatusServicos');
 const avaliaCadastroServico = require('../services/ServicoFunctions/avaliaCadastroServico');
+const avaliarServico = require('../services/ServicoFunctions/avaliarServico');
+const avaliacoesServico = require('../services/ServicoFunctions/avaliacoesServico');
 
 module.exports = {
     async criarServico(req, res) {
@@ -67,5 +69,13 @@ module.exports = {
 
     async avaliaCadastroServico(req, res) {
         return avaliaCadastroServico(req, res);
+    },
+
+    async avaliarServico(req, res) {
+        return avaliarServico(req, res);
+    },
+
+    async avaliacoesServico(req, res) {
+        return avaliacoesServico(req, res);
     }
 }

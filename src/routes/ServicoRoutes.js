@@ -15,7 +15,9 @@ router.get('/list-servico-por-aprovacao/:id_aprovacao', ServicoController.servic
 
 router.post('/', auth.authorizeUser, ServicoController.criarServico);
 router.get('/:id_servico', ServicoController.servicoPorID);
+router.get('/avaliacoes/:id_servico', ServicoController.avaliacoesServico);
 router.put('/:id_servico', auth.authorizeUser, ServicoController.atualizarServico);
+router.put('/avaliar/:id_servico', auth.authorizeUser, ServicoController.avaliarServico);
 router.delete('/:id_servico', auth.authorizeUser, ServicoController.deletarServico);
 
 // Rota destinada para Admin
