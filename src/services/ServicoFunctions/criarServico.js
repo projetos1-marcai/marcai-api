@@ -45,6 +45,7 @@ async function criarServico(req, res) {
     servico = await Servico.findByIdAndUpdate(servico._id, {
         agenda: agenda._id
     })
+    servico = await Servico.findById({_id: servico._id})
 
     let usuario = await Usuario.findById({ _id: req.user._id });
 
