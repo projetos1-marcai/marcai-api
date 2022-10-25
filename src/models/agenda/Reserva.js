@@ -12,6 +12,14 @@ const ReservaSchema = new Schema({
     status: {
         type: Number,
         required: true
+    },
+    inicio: {
+        type: Date,
+        required: true
+    },
+    fim: {
+        type: Date,
+        required: true
     }
 },
     {
