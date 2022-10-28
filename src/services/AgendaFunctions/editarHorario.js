@@ -52,8 +52,7 @@ async function editarHorario(req, res) {
         }
 
     } catch (error) {
-        console.log(error);
-        return res.status(404).send({"msg": "Problema na alteração do status da reserva."});
+        return res.status(404).send({"error": error});
     }
     
 }
