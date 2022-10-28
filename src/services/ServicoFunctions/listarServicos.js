@@ -1,10 +1,19 @@
 const Servico = require('@models/servico/Servico');
+const Usuario = require('@models/usuario/Usuario');
 
 async function listarServicos(req, res) {
 
     const servicos = await Servico.find();
+    let servicos_full = []
 
-    return res.status(200).send({"servicos": servicos});
+    for (let index = 0; index < servicos.length; index++) {
+        let id_fornecedor = servicos[index].fornecedor;
+        let fornecedor = await Usuario.findById({_id: id_fornecedor})
+        let nome_fornecedor = fornecedor.nome;
+        servicos_full.push({"servico":servicos[index], "fornecedor":nome_fornecedor, "id_fornecedor": id_fornecedor})
+    }
+
+    return res.status(200).send({"servicos": servicos_full});
 }
 
 module.exports = listarServicos;
